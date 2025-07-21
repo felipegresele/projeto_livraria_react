@@ -3,14 +3,18 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CadastrarLivro } from "./pages/Cadastrar/CadastrarLivro";
 import { Header } from "./components/Header/Header";
+import { AdicionarLivro } from "./pages/AdicionarLivro/AdicionarLivro";
+import { PageNotFound } from "./routes/PageNoutFound";
 
 function App() {
   return (
     <BrowserRouter>
     <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/disponiveis" element={<CadastrarLivro />} />
+        <Route path="/add_livro" element={<AdicionarLivro />} />
+        <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
