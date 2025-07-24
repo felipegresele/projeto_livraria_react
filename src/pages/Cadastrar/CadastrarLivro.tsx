@@ -4,6 +4,7 @@ import { livrosIniciais } from "../../service/api/livros";
 import { IoIosStarOutline } from "react-icons/io";
 import { Status } from "../../service/type/StatusLivro";
 import { Link } from "react-router-dom";
+import { LivroCard } from "../../components/Livro/LivroCard";
 
 export function CadastrarLivro() {
   const [livroCadastrado, setLivroCadastrado] =
@@ -20,7 +21,15 @@ export function CadastrarLivro() {
     <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
       <div className="justify-between items-center flex mb-6">
         <h1 className="text-3xl font-bold text-blue-700">Livros Cadastrados</h1>
-
+      </div>
+      
+      <div className="mt-5 mb-5 p-1">
+          <label className="font-bold text-2xl mr-3">Pesquisar:</label>
+        <input 
+          className="p-3 rounded-2xl bg-gray-100 font-bold w-[450px] h-[40px] border-0"
+          placeholder="Pesquise o livro que deseja..."
+        />
+        
         <Link
           to="/add_livro"
           className="text-white bg-blue-500 p-2 w-40 h-10 rounded-3xl text-center ml-5 font-bold"
@@ -28,6 +37,8 @@ export function CadastrarLivro() {
           Adicionar Livro
         </Link>
       </div>
+
+      <LivroCard />
 
       {livroCadastrado.length === 0 ? (
         <p className="text-gray-600 text-lg italic">Nenhum livro cadastrado</p>

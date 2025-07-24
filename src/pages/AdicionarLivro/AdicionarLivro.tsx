@@ -1,10 +1,19 @@
-import { useForm } from "react-hook-form";
+
 import { InputController } from "../../components/Input/InputController";
 import { SelectProps } from "../../components/Select/SelectController";
 import { Link } from "react-router-dom";
+import { useForm } from 'react-hook-form';
+import { useEffect, useState } from "react";
+import type { Livro } from "../../service/type/Livro";
+import { cadastrarLivro } from "../../service/api/LivroService";
 
 export function AdicionarLivro() {
   const { control, reset, handleSubmit, watch } = useForm();
+  const {livro, setLivro} = useState<Livro>();
+
+  useEffect(() => {
+    cadastrarLivro().then(response => setLivro(response.data))
+  })
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">

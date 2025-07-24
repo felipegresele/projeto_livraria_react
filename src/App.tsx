@@ -5,6 +5,7 @@ import { CadastrarLivro } from "./pages/Cadastrar/CadastrarLivro";
 import { Header } from "./components/Header/Header";
 import { AdicionarLivro } from "./pages/AdicionarLivro/AdicionarLivro";
 import { PageNotFound } from "./routes/PageNoutFound";
+import { LivroCard } from "./components/Livro/LivroCard";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
     <Header />
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/disponiveis" element={<CadastrarLivro />} />
+        <Route path="/disponiveis" element={<LivroCard />} />
         <Route path="/add_livro" element={<AdicionarLivro />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
